@@ -1,0 +1,177 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 0.1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 160
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Reference Frame: World
+    - Alpha: 0.25
+      Class: rviz_default_plugins/PointCloud2
+      Color: 120; 170; 255
+      Color Transformer: FlatColor
+      Decay Time: 1
+      Enabled: true
+      Name: C1 ROI PointCloud
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 2
+      Size (m): 0.01
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /vision/conveyor_1/debug/pointcloud
+      Use Fixed Frame: true
+    - Alpha: 1
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 80; 40
+      Color Transformer: FlatColor
+      Decay Time: 2
+      Enabled: true
+      Name: C1 Raised Box Points
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 4
+      Size (m): 0.01
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /vision/conveyor_1/debug/raised_points
+      Use Fixed Frame: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: C1 Box Measurements
+      Namespaces:
+        box_centers: true
+        box_dimensions: true
+        measured_boxes: true
+        reference_plane: true
+      Topic:
+        Depth: 10
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /vision/conveyor_1/debug/markers
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: C1 Vision Overlay
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /vision/conveyor_1/debug/overlay_image
+    - Alpha: 0.25
+      Class: rviz_default_plugins/PointCloud2
+      Color: 100; 255; 160
+      Color Transformer: FlatColor
+      Decay Time: 1
+      Enabled: true
+      Name: C2 ROI PointCloud
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 2
+      Size (m): 0.01
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /vision/conveyor_2/debug/pointcloud
+      Use Fixed Frame: true
+    - Alpha: 1
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 220; 40
+      Color Transformer: FlatColor
+      Decay Time: 2
+      Enabled: true
+      Name: C2 Raised Box Points
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 4
+      Size (m): 0.01
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /vision/conveyor_2/debug/raised_points
+      Use Fixed Frame: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: C2 Box Measurements
+      Namespaces:
+        box_centers: true
+        box_dimensions: true
+        measured_boxes: true
+        reference_plane: true
+      Topic:
+        Depth: 10
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /vision/conveyor_2/debug/markers
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: C2 Vision Overlay
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /vision/conveyor_2/debug/overlay_image
+  Enabled: true
+  Global Options:
+    Background Color: 30; 30; 30
+    Fixed Frame: World
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.2
+      Focal Point:
+        X: 0.15
+        Y: 0.8
+        Z: 0.85
+      Name: Vision Camera
+      Pitch: 0.65
+      Target Frame: World
+      Yaw: 3.14
+Window Geometry:
+  Height: 900
+  Width: 1400
+  X: 40
+  Y: 40

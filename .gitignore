@@ -1,0 +1,9 @@
+cat << 'EOF' > .gitignore
+.vscode/
+*.db
+__pycache__/
+*.pyc
+build/
+devel/
+install/
+EOF

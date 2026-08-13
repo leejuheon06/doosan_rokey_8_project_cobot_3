@@ -1,0 +1,101 @@
+<mxfile host="app.diagrams.net" modified="2026-08-11T00:00:00.000Z" agent="claude" version="24.0.0">
+  <diagram id="mid" name="System Overview (중간 상세도)">
+    <mxGraphModel dx="1500" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="지능형 택배 허브 — 시스템 구성 (중간 상세)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sub" value="파선 상자 = 독립 실행 단위 · 화살표 라벨 = 주고받는 정보" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="600" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g1" value="사용자 접점" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="240" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="실행 대시보드&lt;br&gt;&lt;br&gt;시나리오 선택&lt;br&gt;(적재 알고리즘 4종)&lt;br&gt;박스 수량 · 투입 간격 설정&lt;br&gt;시작 / 정지" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="실시간 모니터링&lt;br&gt;&lt;br&gt;진행 로그 · 처리 속도&lt;br&gt;카메라 화면 (컨베이어별)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="296" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="이력 리포트&lt;br&gt;&lt;br&gt;과거 실행 결과 비교" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="402" width="200" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g2" value="자동화 제어 서버" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="340" y="100" width="260" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="웹 서버&lt;br&gt;&lt;br&gt;대시보드 제공&lt;br&gt;요청·상태 중계" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="140" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="설정 검증&lt;br&gt;&lt;br&gt;허용 범위·값만 통과&lt;br&gt;(임의 명령 실행 불가)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="248" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="실행 관리&lt;br&gt;&lt;br&gt;시뮬레이션 기동/종료&lt;br&gt;결과 파일 회수" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="356" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="이력 저장소&lt;br&gt;성공률 · 처리시간 · 안정성" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="360" y="454" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g3" value="디지털 트윈 시뮬레이션" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="100" width="360" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="가상 작업장&lt;br&gt;&lt;br&gt;컨베이어 2계열 · 팔레트&lt;br&gt;택배 박스 1~4호 투입" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="680" y="140" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="로봇 팔 2대&lt;br&gt;&lt;br&gt;컨베이어별 1대 배정&lt;br&gt;충돌 없이 병렬 작업&lt;br&gt;파지 → 이동 → 적재" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="680" y="248" width="320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="적재 알고리즘&lt;br&gt;&lt;br&gt;선택된 방식으로 배치 위치 결정&lt;br&gt;(공간 활용도 · 안정성 반영)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="680" y="366" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="안정성 검증&lt;br&gt;쓰러짐·이탈 여부를 매 적재마다 확인 — 기준 미달 시 즉시 중단" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="464" width="320" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g4" value="AI 비전 인식 (컨베이어별 독립)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1080" y="100" width="360" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="카메라 1 → 규격 인식" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="140" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="카메라 2 → 규격 인식" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="212" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="박스 크기·위치를 실시간 측정해 두 로봇에 각각 전달" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="280" width="320" height="16" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="1. 실행 요청" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="a1" target="b1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="b1" target="b2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="b2" target="b3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="2. 시뮬레이션 기동" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="b3" target="c1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="c1" target="c2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="c2" target="c3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="c3" target="c4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e8" value="3. 박스 인식 요청" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1" target="d1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1" target="d2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="규격·좌표 회신" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.4;entryDx=0;entryDy=0;" edge="1" parent="1" source="d1" target="c2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1050" y="170" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.6;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2" target="c2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1050" y="242" /></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="e12" value="4. 진행 상황" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b3" target="a2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" value="5. 종료 결과" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="b3" target="b4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b4" target="a3"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="note" value="&lt;b&gt;안전장치&lt;/b&gt;&#160;&#160;대시보드의 요청은 서버가 값 범위를 확인한 뒤에만 시뮬레이션에 전달되므로, 잘못된 입력이 시스템을 오작동시킬 수 없다.&lt;br&gt;&lt;b&gt;확장성&lt;/b&gt;&#160;&#160;컨베이어·로봇·카메라가 쌍으로 늘어나는 구조라, 라인을 추가해도 같은 방식으로 운영할 수 있다." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;dashed=1;align=left;spacingLeft=12;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="1400" height="70" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

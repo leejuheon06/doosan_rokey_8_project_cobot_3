@@ -1,0 +1,223 @@
+<mxfile host="app.diagrams.net" modified="2026-08-11T00:00:00.000Z" agent="claude" version="24.0.0">
+
+  <diagram id="graph" name="1. ROS 2 노드 그래프">
+    <mxGraphModel dx="2000" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="t1" value="H2017_integrated_V2_speedy_double — ROS 2 노드 그래프" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="t1b" value="둥근 사각형 = 노드 · 사각형 = 토픽 · 파선 상자 = OS 프로세스 경계 · ROS 2 Humble" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=13;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="52" width="1000" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="P0" value="브라우저" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="180" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="N0" value="/smu · /db&lt;br&gt;300ms 폴링" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="P1" value="프로세스 A — Flask (server.py, :5000)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="270" y="100" width="260" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="N1" value="system_monitor_ui_bridge&lt;br&gt;&lt;br&gt;별도 스레드에서 rclpy.spin()&lt;br&gt;rclpy 미검출 시 비활성 (에러만 표시)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="290" y="140" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="P2" value="프로세스 B — launcher.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="580" y="100" width="260" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="N2" value="speedy_double_launcher&lt;br&gt;&lt;br&gt;subprocess.Popen으로&lt;br&gt;Isaac Sim 프로세스 기동/종료" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="600" y="140" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="T1" value="/palletizing/control&lt;br&gt;String JSON · depth 10&lt;br&gt;{action: start|stop, settings?}" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="260" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="T2" value="/palletizing/process_state&lt;br&gt;RELIABLE · TRANSIENT_LOCAL(1)&lt;br&gt;1s 주기 발행" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="336" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="T3" value="/palletizing/log&lt;br&gt;depth 100 · stdout 라인 스트림" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="412" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="T4" value="/palletizing/result&lt;br&gt;RELIABLE · TRANSIENT_LOCAL(1)&lt;br&gt;종료 시 1회 발행" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="478" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="P3" value="프로세스 C — Isaac Sim (test5_2robot.py)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="890" y="100" width="280" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="N3" value="카메라 Action Graph&lt;br&gt;&lt;br&gt;컨베이어별 depth/info/TF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="910" y="140" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="N4" value="palletizing_plan_publisher&#160;&#160;(?)&lt;br&gt;&lt;br&gt;이번 업로드에 ros_bridge.py 없음&lt;br&gt;— 이전 버전 기준, 갱신 여부 미확인" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;align=left;spacingLeft=8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="910" y="240" width="240" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="T5" value="/vision/conveyor_1/box_detections&lt;br&gt;String JSON · depth 10" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="910" y="350" width="240" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="T6" value="/vision/conveyor_2/box_detections&lt;br&gt;String JSON · depth 10" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="910" y="415" width="240" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="T7" value="/vision/conveyor_{1,2}/debug/*&lt;br&gt;overlay_image · pointcloud&lt;br&gt;raised_points · markers&lt;br&gt;sensor QoS BEST_EFFORT(2)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="910" y="480" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="P4" value="프로세스 D — Vision 컨베이어 1 (node.py)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1220" y="100" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="N5" value="conveyor_box_measurement_node&lt;br&gt;&lt;br&gt;토픽 remap: conveyor_1&lt;br&gt;시스템 rclpy · Python 3.10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="140" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="P5" value="프로세스 E — Vision 컨베이어 2 (node.py)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1220" y="380" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="N6" value="conveyor_box_measurement_node&lt;br&gt;&lt;br&gt;토픽 remap: conveyor_2&lt;br&gt;동일 파이프라인 독립 실행" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="420" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="P6" value="모니터링 (선택)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1560" y="100" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="N7" value="rviz2&lt;br&gt;World 프레임&lt;br&gt;영상 · 점군 · 마커" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1580" y="140" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="N0" target="N1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="N1" target="T1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="T2" target="N1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="270" y="366" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="T3" target="N1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="270" y="437" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="T4" target="N1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="270" y="508" /></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="T1" target="N2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=1;exitY=0.3;exitDx=0;exitDy=0;" edge="1" parent="1" source="N2" target="T2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="N2" target="T3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=1;exitY=0.7;exitDx=0;exitDy=0;" edge="1" parent="1" source="N2" target="T4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e10" value="subprocess.Popen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="N2" target="N3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="860" y="180" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="N3" target="N4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="N3" target="T5">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1030" y="330" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="N3" target="T6">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1030" y="395" /></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="T5" target="N5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="T6" target="N6">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1200" y="470" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="N5" target="T7">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1200" y="515" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="N6" target="T7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e18" value="구독" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;entryX=1;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="T5" target="N1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="850" y="600" /><mxPoint x="850" y="700" /><mxPoint x="400" y="700" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e19" value="구독" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;dashed=1;entryX=1;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="T7" target="N1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="870" y="650" /><mxPoint x="870" y="720" /><mxPoint x="400" y="720" /></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1" source="T7" target="N7">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1520" y="515" /><mxPoint x="1520" y="185" /></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="note" value="&lt;b&gt;프로세스 5개로 나눈 이유&lt;/b&gt;&#160;&#160;Flask(A)는 요청을 검증만 하고 실행하지 않는다. launcher.py(B)가 검증된 설정을 argv로 변환해 Isaac Sim(C)을 서브프로세스로 띄운다.&#160;&#160;Isaac Sim은 번들 Python 3.11, 비전 노드(D·E)는 시스템 rclpy(Python 3.10)를 쓰므로 런타임이 호환되지 않아 별도 프로세스로 분리했다.&lt;br&gt;&lt;b&gt;컨베이어 2계열&lt;/b&gt;&#160;&#160;동일한 비전 파이프라인(node.py)이 토픽 이름만 remap되어 두 프로세스로 독립 실행된다 — 한쪽이 멈춰도 다른 쪽에 영향이 없다.&lt;br&gt;&lt;b&gt;미확인 사항&lt;/b&gt;&#160;&#160;이번 업로드에 ros_bridge.py가 없어 Isaac 내부 노드(N4)의 최신 토픽 구성은 이전 버전 기준이다. 확인 후 갱신이 필요하다." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;dashed=1;align=left;spacingLeft=12;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="740" width="1740" height="60" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="internal" name="2. 신규 노드 내부 구조">
+    <mxGraphModel dx="1700" dy="1000" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="t2" value="신규 노드 내부 구조 — launcher.py · server.py의 RosBridge" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="C1" value="speedy_double_launcher — launcher.py (독립 프로세스)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="780" height="860" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l1" value="&lt;b&gt;구독 1개&lt;/b&gt;&#160;&#160;/palletizing/control (depth 10) → _on_control(msg)&lt;br&gt;action=&quot;start&quot; → _start(settings) &#160;|&#160; action=&quot;stop&quot; → _stop() &#160;|&#160; 그 외 → 예외 후 error 필드에 기록" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="740" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l2" value="&lt;b&gt;validate_settings() — 화이트리스트 검증&lt;/b&gt;&lt;br&gt;&lt;br&gt;box_count: 정수 1~500&lt;br&gt;box_numbers: 정규식 ^[1-4](-[1-4]|(,[1-4])*)?$ (예: &quot;1-4&quot;, &quot;1,3,4&quot;)&lt;br&gt;packing_method ∈ {bl, baf, bssf, blsf}&lt;br&gt;placer ∈ {default, stable}&lt;br&gt;stability_policy ∈ {strict, continue-drift}&lt;br&gt;spawn_interval: 0.1~3600 · seed: 정수 or None&lt;br&gt;stable_min_horizontal_support 0.0~1.0 · stable_min_com_margin −1.0~1.0&lt;br&gt;ros_domain_id: 0~232&lt;br&gt;범위·목록 밖 값은 전부 ValueError로 거부" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="740" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l3" value="&lt;b&gt;build_command() — argv 조립 (셸 미사용)&lt;/b&gt;&lt;br&gt;&lt;br&gt;[isaac_py, test5_2robot.py,&lt;br&gt;&#160;&#160;--box-count N, --box-numbers ..., --spawn-interval ...,&lt;br&gt;&#160;&#160;--measurement-settle-steps ..., --packing-method ...,&lt;br&gt;&#160;&#160;--placer ..., --stability-policy ...,&lt;br&gt;&#160;&#160;--stable-min-horizontal-support ..., --stable-min-com-margin ...,&lt;br&gt;&#160;&#160;--run-summary-path /tmp/speedy_double_summary_&amp;lt;uuid&amp;gt;.json,&lt;br&gt;&#160;&#160;--exit-on-complete, [--seed N], [--freeze-after-stability|--no-...],&lt;br&gt;&#160;&#160;[--yaw-rotation] [--stable-tiebreak] [--center-stack-candidates] [--headless]]&lt;br&gt;&lt;br&gt;resolve_project_root() / resolve_isaac_python() — 환경변수 우선,&lt;br&gt;없으면 PROJECT_DIR_NAME 마커로 상위 경로 탐색 (특정 사용자 경로 미의존)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="440" width="740" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l4" value="&lt;b&gt;프로세스 관리&lt;/b&gt;&lt;br&gt;subprocess.Popen(argv, env, start_new_session=True)&lt;br&gt;env: ROS_DOMAIN_ID · RMW_IMPLEMENTATION=rmw_fastrtps_cpp · PYTHONUNBUFFERED=1&lt;br&gt;백그라운드 스레드가 stdout을 줄 단위로 큐에 적재&lt;br&gt;_stop(): os.killpg(pid, SIGINT) — 프로세스 그룹 전체에 신호 전달" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="690" width="740" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l5" value="&lt;b&gt;발행 3개 (타이머 기반)&lt;/b&gt;&lt;br&gt;_poll() 0.1s → 큐의 로그 라인을 log로 발행 · 프로세스 종료 감지 시&lt;br&gt;&#160;&#160;summary_path JSON을 읽어 result 발행 (없으면 상태를 stopped/failed로 대체)&lt;br&gt;_publish_state() 1s → process_state 발행 (launcher_online, status, run_uid, pid,&lt;br&gt;&#160;&#160;settings, error, elapsed_seconds) — 둘 다 RELIABLE + TRANSIENT_LOCAL(depth 1)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="790" width="740" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="C2" value="system_monitor_ui_bridge — server.py 안의 RosBridge 클래스 (Flask 프로세스 내부 스레드)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="880" y="80" width="760" height="860" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r1" value="&lt;b&gt;발행 1개&lt;/b&gt;&#160;&#160;/palletizing/control ← publish_control(payload)&lt;br&gt;대시보드의 시작/정지 버튼 클릭이 여기서 JSON으로 변환된다" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="900" y="120" width="720" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r2" value="&lt;b&gt;구독 3개 — 실행 상태&lt;/b&gt;&lt;br&gt;_on_state ← process_state &#160;→ MonitorState.process 갱신, last_heartbeat 기록&lt;br&gt;&#160;&#160;(3.5초 이상 갱신 없으면 대시보드가 launcher offline으로 표시)&lt;br&gt;_on_log ← log &#160;→ logs 리스트에 append, run_uid 바뀌면 로그 초기화, 최근 500줄 유지&lt;br&gt;_on_result ← result &#160;→ MonitorState.result 갱신 + db.save_execution() 저장&lt;br&gt;&#160;&#160;(같은 run_uid는 saved_run_uids로 중복 저장 방지)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="900" y="200" width="720" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r3" value="&lt;b&gt;구독 10개 — 비전 (컨베이어 1·2 × 5종)&lt;/b&gt;&lt;br&gt;box_detections × 2 → _on_vision_detection(line, msg) → box·frame_id 갱신&lt;br&gt;overlay_image × 2 → _on_vision_frame → _ros_image_to_jpeg() → vision_frames[line]&lt;br&gt;pointcloud × 2 → _on_vision_cloud(line, &quot;roi&quot;) → 최대 5000점 다운샘플&lt;br&gt;raised_points × 2 → _on_vision_cloud(line, &quot;raised&quot;) → 최대 3500점 다운샘플&lt;br&gt;markers × 2 → _on_vision_markers → reference_plane · measured_boxes(중심·크기·yaw) 파싱" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="900" y="366" width="720" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r4" value="&lt;b&gt;MonitorState.snapshot() — /api/state 응답 생성&lt;/b&gt;&lt;br&gt;라인별 frame_age / detection_age / cloud_age를 계산해 2.5초 이내면 connected=True&lt;br&gt;→ 대시보드가 &quot;카메라 연결 끊김&quot;을 프레임 나이만으로 판정 (헬스체크 별도 없음)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="900" y="536" width="720" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r5" value="&lt;b&gt;장애 허용&lt;/b&gt;&#160;&#160;rclpy import 또는 노드 생성이 실패하면 예외를 삼키고 state.process[&quot;error&quot;]에만 기록한다.&lt;br&gt;Flask 자체는 계속 뜨고 대시보드도 열리지만, 실행/모니터링 기능만 비활성화된다 — ROS 환경이 없어도 UI 껍데기는 점검할 수 있다." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;dashed=1;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="900" y="626" width="720" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r6" value="&lt;b&gt;Flask 라우트가 RosBridge를 사용하는 방식&lt;/b&gt;&lt;br&gt;POST /api/control → publish_control() 호출, 실패 시 503&lt;br&gt;GET /api/state → snapshot() 그대로 JSON 응답 (300ms 폴링 대상)&lt;br&gt;GET /api/vision/&amp;lt;line&amp;gt;/frame.jpg → vision_frame(line) 바이트 그대로 응답&lt;br&gt;GET /api/vision/&amp;lt;line&amp;gt;/cloud.bin → vision_cloud(line, kind) 바이너리 응답&lt;br&gt;GET/DELETE /api/runs[/&amp;lt;id&amp;gt;] → db.py 직접 조회 (RosBridge 경유 안 함)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="900" y="706" width="720" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="link" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;dashed=1;startArrow=block;startFill=1;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="l1" target="r1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="850" y="150" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="link2" value="/palletizing/process_state · log · result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;fontColor=#000000;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="r2" target="l5">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="850" y="275" /></Array></mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>

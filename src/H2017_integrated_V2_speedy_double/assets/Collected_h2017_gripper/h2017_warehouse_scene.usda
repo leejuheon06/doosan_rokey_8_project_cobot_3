@@ -1,0 +1,12 @@
+#usda 1.0
+(
+    # 상위 레이어일수록 강하다: 로봇 셀이 창고 배경을 덮어쓴다.
+    subLayers = [
+        @./h2017_gripper_v8.usd@,
+        @../omni_assets/Assets/Isaac/v5_1/Isaac/Environments/Simple_Warehouse/my_warehouse_base.usd@
+    ]
+    # upAxis / metersPerUnit는 sublayer에서 합성되지 않으므로 루트에 반드시 직접 적어야 한다.
+    upAxis = "Z"
+    metersPerUnit = 1
+    defaultPrim = "World"
+)

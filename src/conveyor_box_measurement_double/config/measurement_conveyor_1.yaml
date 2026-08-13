@@ -1,0 +1,29 @@
+conveyor_1_measurement:
+  ros__parameters:
+    depth_topic: /cv1_depth
+    camera_info_topic: /cv_camera1_info
+    conveyor_topic: /conveyor_1/status
+    detections_topic: /vision/conveyor_1/box_detections
+    output_frame: World
+    use_depth_roi: true
+    roi_x_min_px: 470
+    roi_y_min_px: 120
+    roi_x_max_px: 760
+    roi_y_max_px: 480
+    plane_distance_threshold_m: 0.006
+    cluster_eps_m: 0.02
+    cluster_min_points: 30
+    min_box_height_m: 0.05
+    min_box_footprint_side_m: 0.12
+    max_box_footprint_side_m: 0.50
+    max_box_height_m: 0.35
+    reference_depth_percentile: 85.0
+    empty_detection_retry_frames: 2
+    publish_debug: true
+    debug_publish_rate_hz: 5.0
+    debug_point_stride: 4
+    debug_depth_topic: /vision/conveyor_1/debug/depth_image
+    debug_overlay_topic: /vision/conveyor_1/debug/overlay_image
+    debug_pointcloud_topic: /vision/conveyor_1/debug/pointcloud
+    debug_raised_points_topic: /vision/conveyor_1/debug/raised_points
+    debug_markers_topic: /vision/conveyor_1/debug/markers
